@@ -6,19 +6,26 @@ public class playerController : MonoBehaviour
     private Rigidbody rb;
 
     //Power and Aiming
+    [Header("Power and Aiming")]
     [SerializeField] Slider powerSlider;
     [SerializeField] float powerValMultiplier;
     [SerializeField] GameObject aimObject;
     [SerializeField] float aimSpeed;
     [SerializeField] bool startedSwing;
+    [SerializeField] float ballStopSpeed;
 
     //State
     [SerializeField] controlStates currentState;
 
     //UI
+    [Header("UI")]
     [SerializeField] GameObject[] uiObjects;
     [SerializeField] VariableJoystick aimStick;
     [SerializeField] VariableJoystick powerStick;
+
+    //Managers
+    [Header("Other Managers")]
+    [SerializeField] holeManager hMan;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +36,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(powerStick.Vertical);
+        Debug.Log(rb.velocity.magnitude);
         switch (currentState)
         {
             case controlStates.aiming:
@@ -47,7 +54,7 @@ public class playerController : MonoBehaviour
                     }
                     else
                     {
-                        if(startedSwing == true && powerStick.Vertical == 0)
+                        if (startedSwing == true && powerStick.Vertical == 0)
                         {
                             shootBall();
                         }
@@ -64,9 +71,15 @@ public class playerController : MonoBehaviour
                 }
             case controlStates.inPlay:
                 {
+                    startedSwing = false;
                     foreach (GameObject uiPan in uiObjects)
                     {
                         uiPan.SetActive(false);
+                    }
+
+                    if (rb.velocity.magnitude <= ballStopSpeed)
+                    {
+                        setAim();
                     }
                     break;
                 }
@@ -78,9 +91,20 @@ public class playerController : MonoBehaviour
     public void shootBall()
     {
         rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 2), ForceMode.Impulse);
+        hMan.holeShots = hMan.holeShots + 1;
         currentState = controlStates.inPlay;
     }
 
+    public void setAim()
+    {
+        powerSlider.value = 0;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        foreach (GameObject uiPan in uiObjects)
+        {
+            uiPan.SetActive(true);
+        }
+        currentState = controlStates.aiming;
+    }
     public enum controlStates
     {
         aiming,
