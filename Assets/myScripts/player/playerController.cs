@@ -16,6 +16,8 @@ public class playerController : MonoBehaviour
 
     //State
     [SerializeField] controlStates currentState;
+    [SerializeField] float deadBallWaitMax;
+    [SerializeField] float deadBallWait;
 
     //UI
     [Header("UI")]
@@ -26,6 +28,7 @@ public class playerController : MonoBehaviour
     //Managers
     [Header("Other Managers")]
     [SerializeField] holeManager hMan;
+    [SerializeField] courseManager cMan;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +39,12 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rb.velocity.magnitude);
         switch (currentState)
         {
             case controlStates.aiming:
                 {
                     //Hit ball
-                    
+
                     if (powerStick.Vertical <= -.5)
                     {
                         startedSwing = true;
@@ -71,18 +73,23 @@ public class playerController : MonoBehaviour
                 }
             case controlStates.inPlay:
                 {
-                    startedSwing = false;
-                    foreach (GameObject uiPan in uiObjects)
-                    {
-                        uiPan.SetActive(false);
-                    }
 
                     if (rb.velocity.magnitude <= ballStopSpeed)
                     {
-                        setAim();
+                        deadBallWait = deadBallWait - 1 * Time.deltaTime;
+                        if (deadBallWait <= 0)
+                        {
+                            setAim();
+                        }
+
                     }
                     break;
                 }
+            case controlStates.getScore:
+                {
+                    break;
+                }
+
         }
 
 
@@ -92,22 +99,49 @@ public class playerController : MonoBehaviour
     {
         rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 2), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
+        startedSwing = false;
+        foreach (GameObject uiPan in uiObjects)
+        {
+            uiPan.SetActive(false);
+        }
         currentState = controlStates.inPlay;
     }
 
     public void setAim()
     {
+        currentState = controlStates.aiming;
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
         powerSlider.value = 0;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+        deadBallWait = deadBallWaitMax;
+        transform.LookAt(hMan.holeEnd);
+        foreach (GameObject uiPan in uiObjects)
+        {
+            uiPan.SetActive(true);
+        }
+    }
+
+    public void nextHole(holeManager hMann)
+    {
+        hMan = hMann;
+        
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        transform.position = hMan.holeStart.transform.position;
+        transform.LookAt(hMan.holeEnd.transform.position);
+        powerSlider.value = 0;
+        deadBallWait = deadBallWaitMax;
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(true);
         }
         currentState = controlStates.aiming;
+
     }
     public enum controlStates
     {
         aiming,
-        inPlay
+        inPlay,
+        getScore,
     }
 }
