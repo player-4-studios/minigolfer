@@ -11,23 +11,10 @@ public class holeManager : MonoBehaviour
     [Header("Other Managers")]
     [SerializeField] courseManager cMan;
     [SerializeField] scoreManager sMan;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void madeHole()
     {
-
         cMan.addScore(holeShots);
-        cMan.nextHole();
+        cMan.completeHole(holeShots, holePar);
         Debug.Log("Total shots: " + holeShots.ToString() + " " + "Par: " + holePar.ToString());
     }
 }
