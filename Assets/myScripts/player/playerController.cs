@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour
     [Header("Other Managers")]
     [SerializeField] holeManager hMan;
     [SerializeField] courseManager cMan;
+    [SerializeField] mainCamera mCam;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +68,11 @@ public class playerController : MonoBehaviour
                     {
                         //Get UI joystick horizontal axis
                         transform.Rotate(0, aimStick.Horizontal * aimSpeed * Time.deltaTime, 0);
+                        mCam.rot(aimStick.Horizontal * aimSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        mCam.rot(0);
                     }
 
                     break;
