@@ -130,13 +130,13 @@ public class playerController : MonoBehaviour
     public void nextHole(holeManager hMann)
     {
         hMan = hMann;
-        
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
         transform.position = hMan.holeStart.transform.position;
-        transform.LookAt(hMan.holeEnd.transform.position);
+        transform.rotation = hMan.holeStart.transform.rotation;
         powerSlider.value = 0;
         deadBallWait = deadBallWaitMax;
+        mCam.resetRot();
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(true);

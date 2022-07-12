@@ -11,7 +11,7 @@ public class mainCamera : MonoBehaviour
     private float rotY;
 
     [SerializeField] private Transform target;
-
+    [SerializeField] private Transform setTarget;
     [SerializeField] private float followDist;
     [SerializeField] private float mouseYHold;
     [SerializeField] private float mouseXInput;
@@ -40,5 +40,10 @@ public class mainCamera : MonoBehaviour
         mouseXInput = aimInput;
     }
 
+    public void resetRot()
+    {
+        transform.position = setTarget.position;
+        transform.rotation = setTarget.rotation;
+    }
 
 }
