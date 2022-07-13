@@ -29,12 +29,14 @@ public class playerController : MonoBehaviour
     [Header("Other Managers")]
     [SerializeField] holeManager hMan;
     [SerializeField] courseManager cMan;
-    [SerializeField] mainCamera mCam;
+    mainCamera mCam;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = 1000f;
+        mCam = Camera.main.GetComponent<mainCamera>();
     }
 
     // Update is called once per frame
@@ -103,7 +105,7 @@ public class playerController : MonoBehaviour
 
     public void shootBall()
     {
-        rb.AddForce(-aimObject.transform.forward * (powerSlider.value), ForceMode.Impulse);
+        rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 20), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
         startedSwing = false;
         mCam.isSetting = false;
