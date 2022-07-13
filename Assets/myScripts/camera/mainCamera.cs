@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class mainCamera : MonoBehaviour
@@ -17,18 +15,38 @@ public class mainCamera : MonoBehaviour
     [SerializeField] private float mouseXInput;
 
     [SerializeField] private Vector3 currentRot;
+    [SerializeField] private Vector3 nextRot;
     [SerializeField] private Vector3 smoothVelo = Vector3.zero;
 
     [SerializeField] private float smoothTime;
+    [SerializeField] public bool isSetting;
 
+    private void Awake()
+    {
+      
+
+    }
     private void Update()
+    {
+        if (isSetting)
+        {
+            resetRot();
+        }
+        else
+        {
+            setRot();
+        }
+
+    }
+
+    public void setRot()
     {
         rotY += mouseXInput;
         rotX += mouseYHold;
 
         rotX = Mathf.Clamp(rotX, -25, 25);
 
-        Vector3 nextRot = new Vector3(rotX, rotY);
+        nextRot = new Vector3(rotX, rotY);
         currentRot = Vector3.SmoothDamp(currentRot, nextRot, ref smoothVelo, smoothTime);
         transform.eulerAngles = currentRot;
 
@@ -43,7 +61,8 @@ public class mainCamera : MonoBehaviour
     public void resetRot()
     {
         transform.position = setTarget.position;
-        transform.rotation = setTarget.rotation;
+        nextRot.y = setTarget.rotation.y;
+        transform.LookAt(target.position);
     }
 
 }

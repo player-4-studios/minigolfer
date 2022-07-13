@@ -45,7 +45,7 @@ public class playerController : MonoBehaviour
             case controlStates.aiming:
                 {
                     //Hit ball
-
+                    //mCam.isSetting = true;
                     if (powerStick.Vertical <= -.5)
                     {
                         startedSwing = true;
@@ -103,9 +103,10 @@ public class playerController : MonoBehaviour
 
     public void shootBall()
     {
-        rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 2), ForceMode.Impulse);
+        rb.AddForce(-aimObject.transform.forward * (powerSlider.value), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
         startedSwing = false;
+        mCam.isSetting = false;
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(false);
@@ -136,7 +137,6 @@ public class playerController : MonoBehaviour
         transform.rotation = hMan.holeStart.transform.rotation;
         powerSlider.value = 0;
         deadBallWait = deadBallWaitMax;
-        mCam.resetRot();
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(true);
