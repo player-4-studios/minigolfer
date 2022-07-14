@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockerMove : MonoBehaviour
+public class wheelMove : MonoBehaviour
 {   //Janel's attempt starts here
 
     [SerializeField] Transform startTransform;
