@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockerMove : MonoBehaviour
+public class bombMove3 : MonoBehaviour
 {
     [SerializeField] Transform[] points;
     [SerializeField] int pointsIndex;
@@ -42,3 +42,4 @@ public class blockerMove : MonoBehaviour
         }
     }
 }
+

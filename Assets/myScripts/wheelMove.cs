@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockerMove : MonoBehaviour
+public class wheelMove : MonoBehaviour
 {
     [SerializeField] Transform[] points;
     [SerializeField] int pointsIndex;
     [SerializeField] float navDistance;
     [SerializeField] float speed;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,10 @@ public class blockerMove : MonoBehaviour
             nextPoint();
         }
 
-
+      
     }
 
-
+    
 
     public void nextPoint()
     {
