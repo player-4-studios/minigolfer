@@ -2105,7 +2105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398058408}
   m_Layer: 0
-  m_Name: startPosition
+  m_Name: pointA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5192,7 +5192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111960789}
   m_Layer: 0
-  m_Name: endPosition
+  m_Name: pointB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8692,9 +8692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6564736ac71088429c4a1f70d90411c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTransform: {fileID: 398058408}
-  endTransform: {fileID: 1111960789}
-  interpolationFramesCount: 1000
+  points: []
+  pointsIndex: 0
+  navDistance: 0
+  speed: 0
 --- !u!4 &1977104695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435150, guid: d1b9c6d33f1e63d40be644692cb3e89e, type: 3}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockerMove : MonoBehaviour
+public class spyglassMove : MonoBehaviour
 {
     [SerializeField] Transform[] points;
     [SerializeField] int pointsIndex;

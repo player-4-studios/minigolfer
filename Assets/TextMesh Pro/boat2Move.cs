@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boat2Move : MonoBehaviour
-{   //Janel's attempt starts here
-
-    [SerializeField] Transform startTransform;
-    [SerializeField] Transform endTransform;
-
-    public int interpolationFramesCount = 5000; // Number of frames to completely interpolate between the 2 positions
-    int elapsedFrames = 0;
-
-
+{
+    [SerializeField] Transform[] points;
+    [SerializeField] int pointsIndex;
+    [SerializeField] float navDistance;
+    [SerializeField] float speed;
 
 
     // Start is called before the first frame update
@@ -23,8 +19,26 @@ public class boat2Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
-        transform.position = Vector3.Lerp(startTransform.position, endTransform.position, interpolationRatio);
-        elapsedFrames = (elapsedFrames + 1) % (interpolationFramesCount + 1);  // reset elapsedFrames to zero after it reached (interpolationFramesCount + 1)
+        transform.position = Vector3.Lerp(transform.position, points[pointsIndex].position, speed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, points[pointsIndex].position) <= navDistance)
+        {
+            nextPoint();
+        }
+
+
+    }
+
+
+
+    public void nextPoint()
+    {
+        if (pointsIndex >= points.Length - 1)
+        {
+            pointsIndex = 0;
+        }
+        else
+        {
+            pointsIndex++;
+        }
     }
 }
