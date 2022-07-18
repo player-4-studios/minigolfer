@@ -70,11 +70,6 @@ public class playerController : MonoBehaviour
                     {
                         //Get UI joystick horizontal axis
                         transform.Rotate(0, aimStick.Horizontal * aimSpeed * Time.deltaTime, 0);
-                        mCam.rot(aimStick.Horizontal * aimSpeed * Time.deltaTime);
-                    }
-                    else
-                    {
-                        mCam.rot(0);
                     }
 
                     break;
@@ -108,7 +103,6 @@ public class playerController : MonoBehaviour
         rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 20), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
         startedSwing = false;
-        mCam.isSetting = false;
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(false);
@@ -132,6 +126,7 @@ public class playerController : MonoBehaviour
 
     public void nextHole(holeManager hMann)
     {
+        mCam.moveCam();
         hMan = hMann;
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
