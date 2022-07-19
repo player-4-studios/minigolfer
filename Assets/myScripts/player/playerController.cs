@@ -97,6 +97,14 @@ public class playerController : MonoBehaviour
 
 
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "OutOfBounds")
+        {
+            transform.position = hMan.holeStart.transform.position;
+            transform.rotation = hMan.holeStart.transform.rotation;
+        }
+    }
 
     public void shootBall()
     {

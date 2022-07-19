@@ -32,7 +32,7 @@ public class courseManager : MonoBehaviour
     public void addScore(int holesShot)
     {
         
-        courseScore = courseScore + holesShot;
+        courseScore = courseScore + holesMan[holeIndex].holeShots;
     }
 
     public void completeHole(int holeShot, int holePar)
@@ -40,7 +40,6 @@ public class courseManager : MonoBehaviour
         holeCompletePanel.SetActive(true);
         holeStrokes.text = "Strokes: " + holeShot.ToString();
         holeParText.text = "Par: " + holePar.ToString();
-        courseScore = courseScore + holeShot;
         courseStrokes.text = "Total Strokes: " + courseScore.ToString();
         courseParText.text = "Course Par: " + coursePar.ToString();
         holeIdent.text = holeNumber.ToString();
@@ -51,6 +50,7 @@ public class courseManager : MonoBehaviour
     {
         
         holeIndex++;
+        holeNumber++;
         holeCompletePanel.SetActive(false);
         pController.nextHole(holesMan[holeIndex]);
     }

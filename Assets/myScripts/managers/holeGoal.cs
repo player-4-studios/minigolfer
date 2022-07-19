@@ -15,6 +15,7 @@ public class holeGoal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             hMan.madeHole();
+            Destroy(this.gameObject);
         }
     }
 }

@@ -15,15 +15,12 @@ public class mainMenuManager : MonoBehaviour
     {
         mainPanel.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
     public void backToMain()
     {
         mainPanel.SetActive(true);
+        coursePanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
     public void courseSelection()
     {
