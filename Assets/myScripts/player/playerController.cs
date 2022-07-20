@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float aimSpeed;
     [SerializeField] bool startedSwing;
     [SerializeField] float ballStopSpeed;
+    [SerializeField] Animator aimingAnimation;
 
     //State
     [SerializeField] controlStates currentState;
@@ -37,6 +38,7 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = 1000f;
         mCam = Camera.main.GetComponent<mainCamera>();
+        aimingAnimation = aimObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -46,8 +48,8 @@ public class playerController : MonoBehaviour
         {
             case controlStates.aiming:
                 {
-                    //Hit ball
-                    //mCam.isSetting = true;
+                    //Power Ball
+                    aimingAnimation.SetBool("inPlay", false);
                     if (powerStick.Vertical <= -.5)
                     {
                         startedSwing = true;
@@ -76,7 +78,6 @@ public class playerController : MonoBehaviour
                 }
             case controlStates.inPlay:
                 {
-
                     if (rb.velocity.magnitude <= ballStopSpeed)
                     {
                         deadBallWait = deadBallWait - 1 * Time.deltaTime;
@@ -108,6 +109,7 @@ public class playerController : MonoBehaviour
 
     public void shootBall()
     {
+        aimingAnimation.SetBool("inPlay", true);
         rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 20), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
         startedSwing = false;
@@ -121,6 +123,7 @@ public class playerController : MonoBehaviour
     public void setAim()
     {
         currentState = controlStates.aiming;
+        
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
         powerSlider.value = 0;
