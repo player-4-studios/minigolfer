@@ -40,6 +40,11 @@ public class mainMenuManager : MonoBehaviour
         creditsPanel.SetActive(true);
     }
 
+    public void goToWebsite()
+    {
+        Application.OpenURL("https://church0429.wixsite.com/p4studios?fbclid=IwAR1z_pNEloXfn473_4YjfOf6vJZrZlXEWJK-fagEkeDq-XOjUOoeVCbxjk0");
+    }
+
     public void quitGame()
     {
         Application.Quit();

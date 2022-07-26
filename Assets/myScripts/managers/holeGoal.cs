@@ -5,17 +5,21 @@ using UnityEngine;
 public class holeGoal : MonoBehaviour
 {
     [SerializeField] private holeManager hMan;
+    private Collider collid;
 
     private void Start()
     {
+        collid = GetComponent<Collider>();
         hMan = GetComponentInParent<holeManager>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            hMan.madeHole();
-            Destroy(this.gameObject);
+            Debug.Log(other.gameObject.name);
+                collid.enabled = false;
+                hMan.madeHole();
+            
         }
     }
 }

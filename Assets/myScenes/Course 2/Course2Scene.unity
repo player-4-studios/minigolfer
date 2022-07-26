@@ -818,7 +818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31348633}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 63.306, y: 107.784, z: -72.192}
+  m_LocalPosition: {x: 59.029, y: 107.4625, z: -89.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 926144642}
@@ -3126,7 +3126,6 @@ MonoBehaviour:
   holeStart: {fileID: 1294108576}
   holeEnd: {fileID: 537090021}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1 &198658064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5146,7 +5145,6 @@ MonoBehaviour:
   holeStart: {fileID: 2027902333}
   holeEnd: {fileID: 1465004318}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &311678245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6455,7 +6453,6 @@ MonoBehaviour:
   holeStart: {fileID: 1476887082}
   holeEnd: {fileID: 1800101009}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &372660468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 427352, guid: d24bb65e9cbd4f34d8d7c86cdec254e1, type: 3}
@@ -6645,7 +6642,6 @@ MonoBehaviour:
   holeStart: {fileID: 694428332}
   holeEnd: {fileID: 406161508}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1 &383530020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 139176, guid: e8d31fb942e91c3478cedbdae2b384a0, type: 3}
@@ -7591,7 +7587,6 @@ MonoBehaviour:
   holeStart: {fileID: 1764664511}
   holeEnd: {fileID: 1356204512}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!114 &467773302 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 743484084622233399, guid: 9c0d6ee547b5be24ea05c82ead5063b0, type: 3}
@@ -8638,17 +8633,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e31116153e0b9343b55d625ef7cc1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &555319720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7833029943374747609, guid: 2fa7f496ab24f2f4b84469698c1240f5, type: 3}
-  m_PrefabInstance: {fileID: 1694126466}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2d866dc61da894dbabe4518a30105f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &556138513 stripped
@@ -11334,7 +11318,6 @@ MonoBehaviour:
   holeStart: {fileID: 1067839827}
   holeEnd: {fileID: 870511065}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &720116141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12399,7 +12382,6 @@ MonoBehaviour:
   holeStart: {fileID: 1189296781}
   holeEnd: {fileID: 67169687}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &757592093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12724,7 +12706,6 @@ MonoBehaviour:
   holeStart: {fileID: 335829822}
   holeEnd: {fileID: 604755233}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &770943668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 476002, guid: 976f9222ad22dbe4b87325667c6f3f16, type: 3}
@@ -14962,7 +14943,6 @@ MonoBehaviour:
   holeStart: {fileID: 31348634}
   holeEnd: {fileID: 325000841}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &927368712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488092, guid: 00527f6e18debd843a66aba9400c8c45, type: 3}
@@ -15310,7 +15290,6 @@ MonoBehaviour:
   holeStart: {fileID: 2087523445}
   holeEnd: {fileID: 859123556}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &965257185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15743,7 +15722,6 @@ MonoBehaviour:
   holeStart: {fileID: 2086182342}
   holeEnd: {fileID: 1972726390}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &982553819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 481826, guid: 62c8e5b1e3e37b149a88e4108ebaf709, type: 3}
@@ -19913,7 +19891,6 @@ MonoBehaviour:
   holeStart: {fileID: 1694617839}
   holeEnd: {fileID: 1198356330}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &1274882307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 476002, guid: 976f9222ad22dbe4b87325667c6f3f16, type: 3}
@@ -20635,7 +20612,6 @@ MonoBehaviour:
   holeStart: {fileID: 1750840919}
   holeEnd: {fileID: 140845228}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1 &1306798924
 GameObject:
   m_ObjectHideFlags: 0
@@ -22793,7 +22769,6 @@ MonoBehaviour:
   holeStart: {fileID: 2011765180}
   holeEnd: {fileID: 1601998413}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &1425686687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23165,7 +23140,6 @@ MonoBehaviour:
   holeStart: {fileID: 535070779}
   holeEnd: {fileID: 1412240594}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1001 &1453199676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29576,7 +29550,6 @@ MonoBehaviour:
   holeStart: {fileID: 157488760}
   holeEnd: {fileID: 1408661284}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &1877280422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 474602, guid: 7b9d94c65f50d074cb990c1766a15125, type: 3}
@@ -31654,7 +31627,6 @@ MonoBehaviour:
   holeStart: {fileID: 6340003}
   holeEnd: {fileID: 911665901}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!4 &1980407417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 437500, guid: e6f815ee2c0454c439ff7e1e7c1ba5f3, type: 3}
@@ -31952,19 +31924,19 @@ PrefabInstance:
     - target: {fileID: 6089646360885961480, guid: d4bc79fd521a6d544b06ac6853e09a24, type: 3}
       propertyPath: cameraLocs.Array.data[1]
       value: 
-      objectReference: {fileID: 1305608902}
+      objectReference: {fileID: 289742438}
     - target: {fileID: 6089646360885961480, guid: d4bc79fd521a6d544b06ac6853e09a24, type: 3}
       propertyPath: cameraLocs.Array.data[2]
       value: 
-      objectReference: {fileID: 926144642}
+      objectReference: {fileID: 42873982}
     - target: {fileID: 6089646360885961480, guid: d4bc79fd521a6d544b06ac6853e09a24, type: 3}
       propertyPath: cameraLocs.Array.data[3]
       value: 
-      objectReference: {fileID: 370255648}
+      objectReference: {fileID: 394707786}
     - target: {fileID: 6089646360885961480, guid: d4bc79fd521a6d544b06ac6853e09a24, type: 3}
       propertyPath: cameraLocs.Array.data[4]
       value: 
-      objectReference: {fileID: 1451604770}
+      objectReference: {fileID: 1674296748}
     - target: {fileID: 6089646360885961480, guid: d4bc79fd521a6d544b06ac6853e09a24, type: 3}
       propertyPath: cameraLocs.Array.data[5]
       value: 
@@ -33115,7 +33087,6 @@ MonoBehaviour:
   holeStart: {fileID: 392579255}
   holeEnd: {fileID: 1777374736}
   cMan: {fileID: 555319719}
-  sMan: {fileID: 555319720}
 --- !u!1 &2095458100
 GameObject:
   m_ObjectHideFlags: 0
