@@ -10,10 +10,8 @@ public class holeManager : MonoBehaviour
 
     [Header("Other Managers")]
     [SerializeField] courseManager cMan;
-    [SerializeField] scoreManager sMan;
     public void madeHole()
     {
-        cMan.addScore(holeShots);
         cMan.completeHole(holeShots, holePar);
         Debug.Log("Total shots: " + holeShots.ToString() + " " + "Par: " + holePar.ToString());
     }

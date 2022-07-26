@@ -123,7 +123,6 @@ public class playerController : MonoBehaviour
     public void setAim()
     {
         currentState = controlStates.aiming;
-        
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
         powerSlider.value = 0;

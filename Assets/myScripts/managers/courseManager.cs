@@ -29,14 +29,15 @@ public class courseManager : MonoBehaviour
         
     }
 
-    public void addScore(int holesShot)
+    public void Update()
     {
-        
-        courseScore = courseScore + holesMan[holeIndex].holeShots;
+        Debug.Log(courseScore.ToString());
     }
 
     public void completeHole(int holeShot, int holePar)
     {
+        Debug.Log(holeShot.ToString());
+        courseScore = courseScore + holeShot;
         holeCompletePanel.SetActive(true);
         holeStrokes.text = "Strokes: " + holeShot.ToString();
         holeParText.text = "Par: " + holePar.ToString();
