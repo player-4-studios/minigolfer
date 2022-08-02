@@ -110,18 +110,20 @@ public class playerController : MonoBehaviour
     public void shootBall()
     {
         aimingAnimation.SetBool("inPlay", true);
-        rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 20), ForceMode.Impulse);
+        rb.AddForce(-aimObject.transform.forward * (powerSlider.value / 10), ForceMode.Impulse);
         hMan.holeShots = hMan.holeShots + 1;
         startedSwing = false;
         foreach (GameObject uiPan in uiObjects)
         {
             uiPan.SetActive(false);
         }
+        powerSlider.value = 0;
         currentState = controlStates.inPlay;
     }
 
     public void setAim()
     {
+        powerSlider.value = 0;
         currentState = controlStates.aiming;
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
